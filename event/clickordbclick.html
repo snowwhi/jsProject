@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Demo</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+        #target {
+            padding: 1em;
+            border: 2px solid red;
+        }
+    </style>
+    </head>
+<body>
+    <h1>Double-click only fires itself, not also click</h1>
+
+    <div id="target">click or double click me</div>
+
+    <div id="click">
+        <h2>Click actions triggered: </h2>
+    </div>
+
+    <div id="double-click">
+        <h2>Double-Click actions triggered: </h2>
+    </div>
+    
+    <script>
+        // step1 grab and intiallize
+        const target = document.getElementById("target");
+        let timer = 0;
+        let prevent = false;
+        // create
+        function doClickAction() {
+            document.querySelector("#click h2").textContent += "*";
+        }
+        function doDoubleClickAction() {
+            document.querySelector("#double-click h2").textContent += "@";
+        }
+// major logic
+        target.addEventListener("click", () => {
+            timer = setTimeout(() => {
+                if (!prevent) doClickAction();
+                prevent = false;
+            }, 200);
+        });
+
+        target.addEventListener("dblclick", () => {
+            clearTimeout(timer);
+            prevent = true;
+            doDoubleClickAction();
+        });
+    </script>
+</body>
+</html>

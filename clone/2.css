@@ -1,0 +1,347 @@
+:root {
+    --color: #ffffff;
+    --accent-color: #b27a28;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif; 
+  }
+  
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+  .navbar{
+    position: sticky;
+    top: 0px;
+    z-index: 999;
+    background-color: var(--color);
+  }
+  
+  /* nav bar */
+  .navbar ul {
+    width: 95vw;
+    height: 12vh;
+    background-color: var(--color);
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  
+  .navbar li {
+    font-family: "Poppins", sans-serif;
+    color: var(--accent-color);
+    list-style: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+   
+  }
+  
+  img {
+    height: 80px;
+    max-width: 100%; 
+  }
+  
+  .hamburger {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  @media (max-width: 1000px) {
+    .navbar li:not(:first-child) {
+      display: none;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  }
+  /* nav bar end here */
+
+  /* slider css */
+  .slider{
+    width:100vw;
+    height: 88vh;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: top;
+  }
+  h5{
+    font-size: 2rem;
+    color: #ffffff;
+    text-decoration: aliceblue;
+    font-weight: 800;
+    text-shadow: 1px 1px black;
+    font-family: "Poppins", sans-serif; ;
+  }
+  .carousel-item{
+    position: relative;
+  }
+  .location{
+    position:absolute;
+    bottom: 60px;
+    left: 80px;
+  }
+  .carousel-item .location {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s ease-out;
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    color: white; /* optional for visibility */
+    z-index: 10;
+  }
+  
+  /* Animate when the slide is active */
+  .carousel-item.active .location {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .carousel-control-prev:focus,
+.carousel-control-next:focus {
+  outline: none;
+  box-shadow: none;
+}
+/* slider end here */
+/* box flex */
+.Container{
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  width:100vw;
+  height: auto;
+  flex-wrap: wrap;
+  overflow: scroll;
+
+}
+.box{
+  display: flex;
+  box-sizing: border-box;
+  width: 290px;
+  height: 170px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center; /* Vertically center image and text */
+  gap: 20px;
+  position: relative;
+  margin-top: 10px ;
+  margin-left:30px;
+}
+.btnseemore{
+  background-color:var(--accent-color);
+  padding:10px;
+  border-radius: 10px;
+  border: none;
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  bottom: 10px;
+  color: var(--color);
+  font-weight: 600;
+    font-family: "Poppins", sans-serif; 
+
+}
+h6{
+
+    color:var(--accent-color);
+    font-weight: 600;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif; 
+    position: absolute;
+    top: 25px;
+    left: 68px;
+  }
+.caption{
+  color:#bbbfc7;
+  position: absolute;
+  top: 55px;
+  font-size: 16px;
+  left: 68px;
+}
+.icon{
+  width: 36px;
+  height: 40px;
+   position: absolute;
+   margin-right:10px;
+   top: 20px;
+   left: 15px;
+}
+/* section flex ends here */
+
+/* section Article */
+.blog{
+  width:100vw;
+  height:auto;
+  background-color: var(--accent-color);
+  color: var(--color);
+  font-weight: 500;
+  font-size: 19px; 
+  padding: 40px;
+  text-align: center;
+}
+p{
+  text-align: justify;
+}
+.iframe{
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--color);
+}
+.boxe{
+  width: 400px;
+  height: 600px;
+  margin:10px 20px; 
+  position: relative;
+  background-color: var(--color);
+
+}
+.heading{
+  color: black;
+  font-size: 2rem;
+  font-weight: 800;
+  margin:20px 30px;
+}
+.carousel-item {
+  position: relative;  /* new */
+  width: 100%;
+  height: 500px;
+}
+
+.randomimg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.imagecont {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url('2.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+}
+
+.colorsplash {
+  width: 100vw;
+  min-height: 100vh;
+  background-image:  linear-gradient(to bottom, #b27b28e7, #b27b2825 50%, #b27b28e7); 
+  background-size: cover;
+  background-position: center;
+  background-image: brightness;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  position: relative; 
+  z-index: 1;
+}
+
+.boxes {
+  width: 420px;
+  height: 380px;
+  border: 2px solid #b27a28;
+  background-color:transparent;
+  z-index: 2; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative; 
+  margin: 10px;
+}
+.h{
+  color:var(--accent-color);
+    font-weight: 700;
+    font-size: 20px;
+    text-shadow:1px 1px #232323;
+}
+.para{
+  color:rgba(0, 0, 0, 0.74);
+  text-align: center;
+  font-weight: 400;
+    font-size: 18px;
+
+}
+
+.boxes .icon1{
+  width: 100px;
+  height: 100px;
+   margin:30px auto;
+   
+}
+/* img cointainer ens here */
+/* black box start from here */
+.black{
+  width: 100vw;
+  height: auto;
+  background-color: #232323;
+  display: flex;
+  flex-wrap: wrap;  
+  justify-content: center;
+  align-items: center;
+}
+.blacky{
+  width: 300px;
+  height: 200px;
+  margin: 0px 20px;
+  background-color: #232323;
+  color: white;
+  font-weight: 600;
+  flex-wrap: wrap;
+    font-size: 18px;
+    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.word{
+  color: white;
+  font-weight: 300;
+    font-size: 18px;
+    position :relative;
+
+}
+.word::after {
+    content: "";
+    height: 7px;
+    width: 220px;
+    z-index: 10px;
+    position: absolute;
+    border-radius: 10px;
+    left: -51px;
+    bottom: -14px;
+    background-color: #ffffff;
+}
+/* blacky ends here */
+/* major link portion */
+
+/* footer */
+footer{
+  width: 100vw;
+  height: auto;
+  background-color: #232323;
+  color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+i{
+  margin:0px 8px;
+}
+/* footer */

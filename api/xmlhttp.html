@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+    <style>
+        *{
+            background-color: #212121;
+        }
+        button{
+            background-color: antiquewhite;
+        }
+        .card{
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+            border-radius: 20px;
+            object-fit: cover;
+            background-color: beige;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h2{
+            background-color:beige ;
+        }
+    </style>
+</head>
+<body>
+    <button id="create">create card</button>
+    <script>
+        let resquesturl='https://api.github.com/users/snowwhi'
+        let imgUrl, followers
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.open('Get',resquesturl)
+        xmlhttp.onreadystatechange = function() {
+            console.log("State changed: " + xmlhttp.readyState);
+            if (xmlhttp.readyState === 4) {
+                console.log("Response received: " + xmlhttp.responseText);
+                extractdata()
+            }
+        }
+        function extractdata() {
+            let data=xmlhttp.responseText
+                console.log(typeof data)
+                let obj=JSON.parse(data)
+                console.log( typeof obj)
+    console.log('function checking ')
+                imgUrl=obj.avatar_url
+                followers=obj.id
+                console.log(followers)
+                console.log(imgUrl)
+            
+        }
+       let btn= document.querySelector('#create')
+       btn.addEventListener('click',(e)=>{
+         if (imgUrl && followers !== undefined) { 
+             let card = document.createElement('div');
+             card.className = 'card';
+            let imgDiv = document.createElement('div');
+            imgDiv.className = 'img';
+            let img = document.createElement('img');
+            img.src = `${imgUrl}`;
+            img.style.width='250px'
+            img.style.height='100px'
+            imgDiv.appendChild(img);
+            let h2 = document.createElement('h2');
+            h2.innerText=`Followers: ${followers}`
+            card.appendChild(imgDiv)
+            card.appendChild(h2)
+            document.body.appendChild(card)
+       }
+     else {
+                alert("Data not available yet. Please wait for the API response.");
+            }})
+       xmlhttp.send()
+        </script>
+</body>
+</html>

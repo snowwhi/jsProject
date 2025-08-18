@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+    <style>
+        body{
+            background-color: #212121;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <script>
+                let h = document.createElement('h1')
+                h.id = 'haha'
+                h.className = 'heading'
+                h.innerText = "lorem piscum"
+                h.style.width="100vw"
+                h.style.backgroundColor = 'green'
+                document.body.appendChild(h)
+                // creating a circle
+                for (let i = 1; i<= 200; i++) {
+                 let circle= document.createElement('div')
+                circle.className = 'round'
+                let randomNum = Math.floor(Math.random() * 10) + 1
+                circle.innerText = randomNum
+                circle.style.width='50px'
+                circle.style.height='50px'
+                circle.style.display='flex'
+                circle.style.alignItems='center'
+                circle.style.justifyContent='center'
+                circle.style.borderRadius='50%'
+                circle.style.backgroundColor = 'brown'
+                document.body.appendChild(circle)
+                }
+    </script>
+</body>
+</html>

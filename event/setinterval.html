@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> set interval </title>
+</head>
+<body>
+    // this is the example of timeinterval
+    <button id="start">start</button>
+    <button id="stoped"> stop</button>
+    <script>
+         let st
+        let start=document.querySelector('#start')
+          start.addEventListener("click",function(e) {
+                 st=setInterval(() => {
+                    let date=new Date()
+                    console.log(`hi khadija ${date}`)
+                  }, 1000);    
+          })
+        let stop=document.querySelector('#stoped')
+          stop.addEventListener("click",function(e){
+            
+                  clearInterval(st)
+                  console.log('hi, i have block the shit');
+                  
+          })
+    </script>
+</body>
+</html>

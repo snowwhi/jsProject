@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual-Range Price slider</title>
+    <link rel="stylesheet" href="priceSlider.css">
+</head>
+<body>
+   <div class="price-slider-container">
+        <div class="slider-header">
+            <h2>Filter by Price</h2>
+            <p>Drag the handles to set your price range</p>
+        </div>
+
+        <div class="price-display">
+            <div class="price-box">
+                <label for="min-price">Min Price</label>
+                <input type="text" id="min-price" inputmode="numeric" pattern="[0-9]*">
+            </div>
+            <div class="price-box">
+                <label for="max-price">Max Price</label>
+                <input type="text" id="max-price" inputmode="numeric" pattern="[0-9]*">
+            </div>
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="slider-track"></div>
+            <div class="slider-range"></div>
+            <input type="range" id="min-range" min="0" max="1000" value="200">
+            <input type="range" id="max-range" min="0" max="1000" value="800">
+        </div>
+
+        <div class="slider-values">
+            <span>0</span>
+            <span>1000</span>
+        </div>
+
+        <button class="apply-btn">Apply Filter</button>
+    </div>
+    <script src="priceSlider.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+     <style>
+        body {
+            padding: 20px;
+        }
+        #target {
+            padding: 1em;
+            border: 2px solid red;
+        }
+        </style>
+</head>
+<body>
+     <h1>Double-click only fires itself, not also click</h1>
+
+    <div id="target">click or double click me</div>
+
+    <div id="click">
+        <h2>Click actions triggered: </h2>
+    </div>
+
+    <div id="double-click">
+        <h2>Double-Click actions triggered: </h2>
+    </div>
+   
+   <script>
+    // Step 1
+    let target = document.getElementById('target');
+    let timer = 0;
+    let prevent = false;
+
+    // Declaring function
+    function handleClick() {  
+        document.querySelector('#click').textContent += '#';  
+        // Set background color here
+    }
+
+    function handleDoubleClick() {
+        document.querySelector("#double-click h2").textContent += "@";
+    }
+
+    // Major logic
+    target.addEventListener("click", () => {
+        timer = setTimeout(() => {
+            if (!prevent) handleClick();
+            prevent = false; // Reset prevent after handling click
+        }, 300);
+    });
+
+    target.addEventListener("dblclick", function(e) {
+        clearTimeout(timer);
+        prevent = true; // Set prevent to true to avoid click action
+        handleDoubleClick();
+    });
+    target.addEventListener("drag", function(e) {
+       document.body.style.background='green'
+    }); 
+</script>
+
+</body>
+</html>

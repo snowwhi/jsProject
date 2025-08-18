@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI alulator</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: azure;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main{
+            width: 250px;
+            height: 300px;
+            background-color: rgb(221, 221, 73);
+            border: 2px solid black;
+            border-radius: 10px;
+            padding:20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        input{
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <legend> Enter our weight in kg</legend>
+        <input type="number" name="weight" id="weight">
+        <legend>Enter our height in meter</legend>
+        <input type="number" name="height" id="height">
+        <input type="button" value="calculate" id="btn">
+        <h3></h3>
+    </main>
+    <script>
+   let weight = document.getElementById('weight');
+let height = document.getElementById('height');
+let total = document.getElementById('btn');
+let result = document.getElementsByTagName('h3')[0];
+
+total.addEventListener('click', function(e) {
+    let h = Number(height.value);
+    if (h === 0) {
+        result.innerText = "Invalid height";
+        return;
+    }
+
+    let w = Number(weight.value);
+    let t = w / (h * h);
+    result.innerText = `Your BMI is ${t.toFixed(2)}`;
+});
+
+    </script>
+</body>
+</html>

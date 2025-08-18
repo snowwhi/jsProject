@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faulty</title>
+</head>
+<body>
+    <script>
+        //demanding things
+        let a=prompt("enter a Number")
+        let b= prompt('Enter another Number')
+        let d=prompt("Enter the operation u want to perform")
+        // developing things
+        let x=Math.random()
+        let fault={
+            "+":"-",
+             '-':'+',
+             '*':'/',
+             '/':'*'
+        }
+        // main condition
+        if(x>0.1){
+            alert( ` the result is ${eval(`${a} ${d} ${b}`)}`)
+        }
+        else{
+          d=obj(d)
+          alert( ` the result is ${eval(`${a} ${d} ${b}`)}`)
+        }
+    </script>
+</body>
+</html>

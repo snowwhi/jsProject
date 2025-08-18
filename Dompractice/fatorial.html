@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fatorial</title>
+</head>
+<body>
+    <script>
+        // approah 1
+        // grab
+        let x =prompt('Enter any number')
+        // develop
+        let arr=[]
+        if(isNaN(x)){
+            let x =prompt('please Enter a valid  number')
+        }
+        //logic
+        
+        for (let index = 1; index <= x; index++){
+            arr.push(index)
+        }
+
+const total=arr.reduce( function(accumulator,initalvalue){
+    return accumulator*initalvalue
+},1)
+let z=arr.reverse().join('*')
+ prompt(`The fatorial of ${x} is:${z} = ${total}`)
+        // approah 2
+        //simple for loop
+        
+        function factorial(num){
+            let fat = 1;
+            for(let index = 1; index <= num; index++){
+            fat = fat * index;
+            }
+            return fat;
+        }
+        console.log(factorial(12))
+    </script>
+</body>
+</html>

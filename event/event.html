@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        .frame{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="box1"><img src="https://picsum.photos/id/2/200/200"></div>
+        <div class="box2"><img src="https://picsum.photos/id/20/200/200"></div>
+        <div class="box3"><img src="https://picsum.photos/id/30/200/200"></div>
+        <div class="box4"><img src="https://picsum.photos/id/40/200/200"></div>
+        <div class="box5"><img src="https://picsum.photos/id/50/200/200"></div>
+        <div class="box6"><img src="https://picsum.photos/id/60/200/200"></div>
+    </div>
+    <script>
+        let frame=document.querySelector('.frame')
+frame.addEventListener('click',function(e) {
+    console.log('hi i  am parent which is being clicked and removed')
+          console.log(e.target.tagName)
+          if(e.target.tagName==='IMG'){
+         let removeit = e.target.parentNode
+     console.log(removeit)
+     removeit.remove()
+          }
+},false)
+let box2=document.querySelector('.box2')
+box2.addEventListener('click',function(e) {
+    console.log('hi child is being cliccked ')
+},false)
+
+
+    </script>
+</body>
+</html>

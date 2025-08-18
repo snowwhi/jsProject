@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: #212121;
+            color: white;
+            font-size: larger;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        main{
+            width: 350px;
+            height: 450px;
+            border: 2px solid white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input{
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+    <div id="frame">
+        <h1>Number guessing game</h1>
+        <p>try and guess between 1 and 100</p>
+        <p>you have 6 attempts to guess the right number</p>
+        <br>
+        <form  class="form">
+            <label for="guessfeild"> Guess A Number</label>
+            <input type="number" name="guessFeild" id="guessFeild">
+            <input type="submit" id="submit" value="Submit " class="guessSubmit">
+        </form>
+      <div class="resultPara">
+        <p>Previous Guess : <span class="Array"></span></p>
+        <p>Guess Remaining : <span class="lastResult"></span></p>
+        <p class="lowOrHigh"></p>
+      </div>
+    </div>
+    </main>
+    <script>
+        // grab the -items
+        let input=document.querySelector('#guessFeild')
+        let submit=document.querySelector('#submit')
+        let Array=document.querySelector('.Array')
+        let lastResult=document.querySelector('.lastResult')
+        let lowOrHigh=document.querySelector('.lowOrHigh')
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let prevGuess = [];
+        let play=true
+        let attempt=1
+        // step GAME ACTIVE OR NOT
+        if(play){
+                submit.addEventListener('click',(e)=>{
+                    let guess= Number(input.value)
+                    valitaeinput(guess)
+                })
+        }
+         function valitaeinput(guess) {
+            if(isNaN(guess) || guess<=0 || guess>100 ){
+                alert('please write a number between 1 and 100')
+            }
+            else{
+                chkGuess(guess)
+            }
+         }
+         function chkGuess(params) {
+            
+         }
+         function displayMessage() {
+            alert("please Enter a valid number")
+         }
+         function endGame(params) {  
+         }
+         function restartgame(params) {   
+         }
+
+
+    </script>
+</body>
+</html>

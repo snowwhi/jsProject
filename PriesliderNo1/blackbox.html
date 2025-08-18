@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Range Price Slider</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #f3f4f6;
+            --track-height: 5px;
+            --thumb-size: 20px;
+            --track-color: #d1d5db;
+            --active-track-color: var(--primary-color);
+            --thumb-color: #ffffff;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9fafb;
+            color: #111827;
+            padding: 20px;
+        }
+
+        .price-slider-container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+        }
+
+        .slider-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .slider-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .slider-header p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .price-display {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .price-box {
+            flex: 1;
+            padding: 12px;
+            border-radius: 6px;
+            background-color: var(--secondary-color);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .price-box label {
+            display: block;
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+
+        .price-box input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            color: #111827;
+            outline: none;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            height: 50px;
+            margin: 10px 0 40px;
+        }
+
+        .slider-track {
+            position: absolute;
+            width: 100%;
+            height: var(--track-height);
+            background-color: var(--track-color);
+            border-radius: var(--track-height);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .slider-range {
+            position: absolute;
+            height: var(--track-height);
+            background-color: var(--active-track-color);
+            border-radius: var(--track-height);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: var(--track-height);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: var(--thumb-size);
+            height: var(--thumb-size);
+            border-radius: 50%;
+            background: var(--thumb-color);
+            border: 2px solid var(--active-track-color);
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: var(--shadow);
+            transition: transform 0.1s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: var(--thumb-size);
+            height: var(--thumb-size);
+            border-radius: 50%;
+            background: var(--thumb-color);
+            border: 2px solid var(--active-track-color);
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: var(--shadow);
+        }
+
+        .slider-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            color: #6b7280;
+            font-size: 0.8rem;
+        }
+
+        .apply-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .apply-btn:hover {
+            background-color: #4f46e5;
+        }
+
+        @media (max-width: 500px) {
+            .price-display {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="price-slider-container">
+        <div class="slider-header">
+            <h2>Filter by Price</h2>
+            <p>Drag the handles to set your price range</p>
+        </div>
+
+        <div class="price-display">
+            <div class="price-box">
+                <label for="min-price">Min Price</label>
+                <input type="text" id="min-price" inputmode="numeric" pattern="[0-9]*">
+            </div>
+            <div class="price-box">
+                <label for="max-price">Max Price</label>
+                <input type="text" id="max-price" inputmode="numeric" pattern="[0-9]*">
+            </div>
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="slider-track"></div>
+            <div class="slider-range"></div>
+            <input type="range" id="min-range" min="0" max="1000" value="200">
+            <input type="range" id="max-range" min="0" max="1000" value="800">
+        </div>
+
+        <div class="slider-values">
+            <span>0</span>
+            <span>1000</span>
+        </div>
+
+        <button class="apply-btn">Apply Filter</button>
+    </div>
+
+    <script>
+        const minRange = document.getElementById('min-range');
+        const maxRange = document.getElementById('max-range');
+        const minPrice = document.getElementById('min-price');
+        const maxPrice = document.getElementById('max-price');
+        const range = document.querySelector('.slider-range');
+
+        // Input/Range sync functionality
+        minPrice.addEventListener('input', function(e) {
+            minRange.value = e.target.value.replace(/\D/g, '');
+            updateValues();
+        });
+
+        maxPrice.addEventListener('input', function(e) {
+            maxRange.value = e.target.value.replace(/\D/g, '');
+            updateValues();
+        });
+
+        // Default values
+        let minVal = parseInt(minRange.value);
+        let maxVal = parseInt(maxRange.value);
+
+        function updateValues() {
+            minVal = parseInt(minRange.value);
+            maxVal = parseInt(maxRange.value);
+            
+            // Don't allow min to exceed max and vice versa
+            if (minVal > maxVal) {
+                minRange.value = maxVal;
+                minVal = maxVal;
+            }
+            
+            if (maxVal < minVal) {
+                maxRange.value = minVal;
+                maxVal = minVal;
+            }
+            
+            // Update price displays (remove $ for editing)
+            minPrice.value = minVal;
+            maxPrice.value = maxVal;
+            
+            // Update range styling
+            range.style.left = (minVal / maxRange.max * 100) + '%';
+            range.style.right = ((maxRange.max - maxVal) / maxRange.max * 100) + '%';
+        }
+
+        // Initialize
+        updateValues();
+
+        // Add event listeners
+        minRange.addEventListener('input', updateValues);
+        maxRange.addEventListener('input', updateValues);
+
+        document.querySelector('.apply-btn').addEventListener('click', function() {
+            alert(`Price range applied: $${minVal} - $${maxVal}`);
+        });
+    </script>
+</body>
+</html>

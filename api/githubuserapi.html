@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #212121;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //setp1
+        let URL='https://api.github.com/users'
+        let arr=[]
+        // step2 creating construtor
+        const xhr=new XMLHttpRequest()
+        //step 3 //open
+        xhr.open('GET',URL)
+        //step for of validating
+        xhr.onreadystatechange=function(){
+            console.log('State Changed:'+xhr.readyState)
+            if(xhr.readyState===4){
+                console.log("Response received: "+xhr.responseText);
+                extractText()
+            }
+        }
+        function extractText() {
+            let data=xhr.responseText
+           // console.log(typeof data)
+            // string to jason 
+            let obj=JSON.parse(data)
+            obj.forEach(element => {
+                //console.log(element['gists_url'])
+                arr.push(element.id)
+               //console.log(arr)
+            });
+
+            // looping
+            // for (const [key,value] of entries) {
+            //     console.log(value.id)     
+            }
+        
+     //last setp calling
+     xhr.send()
+    </script>
+</body>
+</html>

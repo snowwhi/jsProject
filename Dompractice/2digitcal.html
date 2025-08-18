@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Calculator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: azure;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .frame {
+      width: 250px;
+      background-color: rgb(221, 221, 73);
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .displa {
+      grid-column: span 3;
+      height: 40px;
+      background: white;
+      border-radius: 8px;
+      text-align: right;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .btn, .enter, .clear {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      background-color: white;
+      cursor: pointer;
+    }
+    .spae {
+      grid-column: span 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="displa" id="display"></div>
+    <button class="btn" id="1">1</button>
+    <button class="btn" id="2">2</button>
+    <button class="btn" id="3">3</button>
+    <button class="btn" id="4">4</button>
+    <button class="btn" id="5">5</button>
+    <button class="btn" id="6">6</button>
+    <button class="btn" id="7">7</button>
+    <button class="btn" id="8">8</button>
+    <button class="btn" id="9">9</button>
+    <button class="btn" id="0">0</button>
+    <button class="btn" id="+">+</button>
+    <button class="btn" id="-">-</button>
+    <button class="btn" id="*">*</button>
+    <button class="btn" id="/">/</button>
+    <button class="clear">Clear</button>
+    <button class="enter">Enter</button>
+  </div>
+
+  <script>
+    let buttons = document.querySelectorAll('.btn');
+    let display = document.getElementById('display');
+    let expression = "";
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        expression += button.id;
+        display.innerText = expression;
+      });
+    });
+
+    document.querySelector('.enter').addEventListener('click', () => {
+      
+        let result = eval(expression);
+        display.innerText = result;
+        expression = "";
+      }
+    );
+
+    document.querySelector('.clear').addEventListener('click', () => {
+      expression = "";
+      display.innerText = "";
+    });
+  </script>
+</body>
+</html>

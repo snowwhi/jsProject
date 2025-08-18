@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color changer</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .frame{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 100px;
+            height: 150px;
+            border: 2px solid black;
+            margin-left: 20px;
+            z-index: 100px;
+        }
+        #blue{
+            background-color: blue;
+        }
+        #green{
+            background-color: green;
+        }
+        #red{
+            background-color: red;
+        }
+        #purple{
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <button id="blue" class="box"> </button>
+        <button id="green" class="box"></button>
+        <button id="red" class="box"></button>
+        <button id="purple" class="box"></button>
+    </div>
+<script>
+    let rangbaaz = document.querySelectorAll('.box');
+    let frame = document.querySelector('.frame');
+    rangbaaz.forEach((box) => {
+         box.addEventListener('click', function(e) {
+        //    frame.style.backgroundColor = e.target.id
+    if(e.target.id==="blue"){
+        frame.style.backgroundColor = e.target.id
+    }   
+    if(e.target.id==="green"){
+        frame.style.backgroundColor = e.target.id
+    }
+    if(e.target.id==="red"){
+        frame.style.backgroundColor = e.target.id
+    }
+    if(e.target.id==="purple"){
+        frame.style.backgroundColor = e.target.id
+    } 
+    });
+
+    });
+</script>
+</body>
+</html>

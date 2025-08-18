@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom learning</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: white;
+        }
+        span{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <h1 class="heading" id="khadija">khadija<span> text</span></h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet possimus dolor aliquid quibusdam reprehenderit ex consectetur consequatur iure illo dignissimos!</p>
+    </div>
+    <script>
+        //let the journey of dom begin
+        console.log(document.getElementsByClassName('heading'))
+        console.log(document.getElementsById('id'))
+        let h=document.getElementById('khadija')
+        console.log(h)
+        console.log(h)
+        h.innerHTML
+        h.innerText
+// document.getElementsById
+//.id//.ClassName
+//getAttribute(id)
+//getAttribute(class)
+//setAtribute(class ,test)//it overrided
+//queryselector
+//queryselectorAll
+//Array.from()
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            color: #149414;
+        }
+        ul {
+            width: 100vw;
+            min-height: 100vh;
+            height: auto;
+            background-size: cover;
+             background-image: url('https://img.freepik.com/free-vector/matrix-style-binary-code-digital-background-with-falling-numbers_1017-25336.jpg?t=st=1753636660~exp=1753640260~hmac=92fdfbaad60411f27ece434ac02d8583ea785befc5ebda56b5473e26c2cd8e93&w=826');
+             backdrop-filter: blur(5px);
+            list-style-type: none; 
+            padding: 20px;
+        }
+        li {
+            margin: 10px 0; /* Add some margin between list items */
+        }
+        h4{
+            font-weight: 800;
+            font-size: 16px;
+            text-shadow: 1px 1px 3px #082208;
+        }
+    </style>
+</head>
+<body>
+    <ul id="messageList"></ul> <!-- Create a container for the list items -->
+    <script>
+        let list=document.getElementById('messageList')
+        // Random seconds
+        function randomDelay() {
+            let sec = Math.floor(Math.random() * 2) + 1;
+            let millisec = sec * 1000; // Random delay between 1 and 7 seconds
+            return millisec;
+        }
+
+        // Text generation
+        function text() {
+            const phrases = [
+                "+ System initialized ...",
+                "+ Initializing Hacking...#",
+                "+ Reading your Files...",
+                "+ Security protocols engaged.....",
+                "+ Data streams connected...",
+                "+ Password files Detected...", 
+                "+ Network nodes synchronized....",
+                "+ Sending password & personal files to server....",
+                "+ Cleaning up#"
+            ];
+            let randomText = phrases[Math.floor(Math.random() * phrases.length)];
+            let Element = document.createElement('h4');
+            Element.className = 'bullet-text';
+            Element.innerText = randomText;
+            let list=document.getElementById('messageList').appendChild(Element); 
+        }
+
+        function time() {
+            setInterval(text, randomDelay());
+        }
+        time();
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0px;
+        }
+        .container{
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.801);
+            width:100vw;
+            height:100vh;
+            color: black;
+            text-align: center;
+        }
+        #date{
+          width: 120px;
+          text-align: center;
+          padding: 5px;
+          font-size: larger;
+          height: 30px;
+          background-color: bisque;
+          border-radius: 20px;
+          border: 2px solid black;
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title" id="tit">current date</h1>
+        <div id="date"></div>
+    </div>
+    <script>
+        let box=document.getElementById('date')
+        setInterval(function() {
+            let time = new Date()
+               box.innerHTML=time.toLocaleTimeString()
+        },1000)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            background-color: #033001;
+            color: #149414;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // random sec
+        function random() {
+            let sec=Math.floor(Math.random()*9)+1
+            let millisec=sec*1000
+            return millisec
+        }
+        //text generation
+        function text(){
+             for (let index = 1; index < 100; index++) {
+            let Element=document.createElement('h3')
+            Element.innerText=`${index}`
+            document.body.appendChild(Element)
+            break
+             }}
+        function time() {
+            setInterval(text,random())
+            document.body.appendChild('text')
+        }
+    time();
+</script>
+
+    </script>
+</body>
+</html>

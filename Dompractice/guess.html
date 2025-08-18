@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: bisque;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #frame {
+      width: 250px;
+      border: 2px solid black;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: aliceblue;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      gap: 10px;
+    }
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      background-color: beige;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="frame">
+    <h3>Guess the number between 1 to 100</h3>
+    <h4>You have exactly 6 rounds before the game ends</h4>
+    <input type="number" id="urguess" />
+    <input type="button" value="Check" id="chk" />
+    <h5 id="prev">Your previous guesses:</h5>
+    <h4 id="result"></h4>
+  </div>
+
+  <script>
+    const guess = document.getElementById("urguess");
+    const chk = document.getElementById("chk");
+    const prev = document.getElementById("prev");
+    const result = document.getElementById("result");
+
+    let x = Math.floor(Math.random() * 100) + 1;
+    let attempt = 0;
+    const maxattempt = 6;
+    const arr = [];
+
+    chk.addEventListener("click", function () {
+      const userguess = Number(guess.value);
+
+      if (!userguess || userguess < 1 || userguess > 100) {
+        result.innerText = "⚠️ Please guess a number between 1 and 100.";
+        return;
+      }
+
+      attempt++;
+      arr.push(userguess);
+      prev.textContent = "Your previous guesses: " + arr.join(", ");
+
+      if (userguess === x) {
+        result.innerText = `🎉 You guessed right! The number was ${x}.`;
+        chk.disabled = true;
+      } else if (attempt >= maxattempt) {
+        result.innerText = `❌ Game over! The number was ${x}.`;
+        chk.disabled = true;
+      } else {
+        result.innerText = userguess < x ? "⬇️ Too low!" : "⬆️ Too high!";
+      }
+
+      guess.value = "";
+    
+    });
+  </script>
+</body>
+</html>

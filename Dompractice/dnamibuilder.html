@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dnami web builder</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            
+            box-sizing: border-box;
+        }
+        body{
+             background-color: #212121;
+        }
+        .container{
+            width: 100vw;
+            height: auto;
+    
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: column;
+        background-color: #212121;
+            color: whitesmoke;
+            }
+            #generate{
+                padding: 10px;
+                border-radius: 10px;
+                margin: 20px 0px;
+                font-size: 18px;
+            }
+           .card{
+                display: flex;
+                width: 900px;
+                margin: 10px ;
+                border: 2px solid beige;
+                height: 170px;
+                background-color: rgb(19, 13, 13);
+                justify-content: start;
+                align-items: start;
+                position: relative;
+            }
+            img{
+                border-radius: 20px;
+                margin: 0px 20px;
+            }
+        .inline{
+            margin: 10px 0px; 
+            display: flex;
+        }
+        .text{
+            margin-top: 15px;
+        }
+        span{
+    background-color: #21212194;
+    padding: 4px;
+    position: absolute;
+    border-radius: 10px;
+    bottom: 3px;
+    left: 276px;
+    z-index: 20px;
+}
+        
+    </style>
+</head>
+<body>
+    <!-- first creating a tempate  -->
+     <div class="container">
+     <!-- main button -->
+      <input type="button" value="generate" id="generate">
+      <!-- creating a template just for demo -->
+       <div class="card">
+        <div class="img">
+            <img src="thumnail.jfif" alt="thumnail">
+            <span> 31:31</span>
+        </div>
+        <div class="text">
+            <h2 >Sigma Web development Course Tutoria # l</h2>
+            <div class="inline">
+                <h4 class="c">Code with Harry .</h4>
+                <h4 class="views"> 784 K . </h4>
+                <h4 class="months"> 2 months old</h4>   
+            </div>
+            
+</div></div></div>
+<script>
+    // grab
+    let container=document.getElementsByClassName('container')
+    let generate=document.getElementById('generate')
+      
+      //creating function
+    function randomnumber  (min,max) {
+      let random=Math.floor(Math.random() * (max - min + 1)) + min;
+      return random
+    }
+    //onclick function
+    generate.addEventListener('click',(e)=>{
+
+ let card = document.createElement('div');
+    card.className = 'card';
+    // creating img
+            let imgDiv = document.createElement('div');
+            imgDiv.className = 'img';
+            let img = document.createElement('img');
+            img.src = "thumnail.jfif";
+            img.alt = "thumbnail";
+            imgDiv.appendChild(img);
+            let span = document.createElement('span');
+              span.innerText=`${randomnumber(1,60)}:${randomnumber(1,60)}`
+// creating text
+ let textDiv = document.createElement('div');
+ textDiv.className = 'text';
+ let h2 = document.createElement('h2');
+ h2.innerText=`Sigma Web development Course Tutoria # ${randomnumber(0,100)}`
+ // all the below item will append to inline div
+ let div = document.createElement('div');
+ div.className = 'inline';
+ // h4 channel name which in my case remain same 
+ let h = document.createElement('h4');
+  h.className = 'c';
+  h.innerText='Code with Harry .'
+
+let h1 = document.createElement('h4');
+  h1.className = 'views';
+  h1.innerText=`${randomnumber(1,999)} K . `
+
+  let h3 = document.createElement('h4');
+  h3.className = 'months';
+  h3.innerText=`${randomnumber(1,20)} months old `
+
+            // appending child
+            div.appendChild(h)
+            div.appendChild(h1)
+            div.appendChild(h3)
+           textDiv.appendChild(h2)
+           textDiv.appendChild(div)
+            card.appendChild(imgDiv)
+             card.appendChild(textDiv)
+             card.appendChild(span)
+    document.querySelector('.container').appendChild(card);
+}
+    
+    )
+</script>
+</body>
+</html>

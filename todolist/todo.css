@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.flex{
+    display: flex;
+}
+.justify{
+    justify-content: center;
+}
+.align{
+    align-items: center;
+}
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #020024;
+    background-image: linear-gradient(142deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 45%, rgba(20, 128, 140, 1) 84%, rgba(99, 223, 247, 1) 99%);
+}
+.container{
+  width: 500px;
+  min-height:250px;
+  height: auto;
+  border-radius: 40px;
+  background-color: rgb(243, 243, 243);
+}
+header img{
+    width: 30px;
+    height: 30px;
+}
+header{
+    margin-top: 10px;
+    gap: 10px;
+}
+.input{
+    background-color: transparent;
+    margin-left: 25px;
+    width: 450px;
+    border: none;
+    height: auto;
+    gap: 10px;
+    border-radius: 10px;
+}
+.input input{
+    width: 100%; 
+    height: 100%; 
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5px;    
+}
+.input button{
+    background-color: blue;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+ul{
+    position: relative;
+}
+li{
+ list-style:'\f058';
+ line-height: 40px;
+ padding-left: 10px;
+ margin-left: 20px;
+
+}
+/* li::before{
+    content: "\f058";
+} */
+ li.checked{
+   color:gray;
+   list-style: none;
+}
+li.checked::before{  
+color: green;
+font-size: larger;
+  content: '\2611\0020';
+  margin: 0px 5px;
+}
+ul li span{
+    color: red;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -320px;
+}
+ul li span:hover{
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(128, 128, 128, 0.315);
+    border-radius: 50%;
+}

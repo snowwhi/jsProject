@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyboard</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .frame{
+            width: 100vw;
+            height: 100vh;
+            background-color: #212121;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        tr{
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div id="insert"></div>
+    </div>
+    <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const insert = document.getElementById('insert');
+            
+            window.addEventListener("keydown", (e) => {
+                insert.innerHTML = `
+                    <table>
+                        <tr>
+                            <th>Key</th>
+                            <th>Code</th>
+                        </tr>
+                        <tr>
+                            <td>${e.key === ' ' ? 'Space' : e.key}</td>
+                            <td>${e.code}</td>
+                        </tr>
+                    </table>
+                `;
+            });
+        });
+    </script>
+</body>
+</html>

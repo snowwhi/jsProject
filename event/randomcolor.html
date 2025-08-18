@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color</title>
+    <style>
+
+        #frame{
+            width: 100vw;
+            height: 100vh;
+            gap: 20px;
+
+         display: flex;
+         align-items: center;
+         justify-content: center;    
+        }
+        button{
+            padding: 10px;
+            background-color: aliceblue;
+             border-radius: 10px;
+        }
+        </style>
+</head>
+<body>
+    <div id="frame">
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+
+    </div>
+    <script>
+        // step1 grab
+        let start=document.querySelector('#start')
+        let stop=document.querySelector('#stop')
+        let frame=document.querySelector('#frame')
+        
+        let st
+        // reate
+        function randomcolor() {
+            let r=Math.floor(Math.random()*256)
+            let g=Math.floor(Math.random()*256)
+            let b=Math.floor(Math.random()*256)
+            let rang=`rgb(${r},${g},${b})`
+            return rang
+        }
+        //start
+        start.addEventListener("click",function(e) {
+                 st=setInterval(() => {
+                   frame.style.backgroundColor=`${randomcolor()}`
+
+                  }, 1000);    
+          })
+          
+       stop.addEventListener("click",function(e){
+                  clearInterval(st)
+                  
+          })
+    </script>
+</body>
+</html>
